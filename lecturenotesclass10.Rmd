@@ -1,7 +1,7 @@
 ---
 title: "Introduction to probability"
-author: ""
-date: ""
+author: "Sophie Kebret"
+date: "2/22/21"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -49,18 +49,15 @@ xtabs(~ Treatment + Improved, data = Arthritis) %>%
 ```
 
 - How many patients were enrolled in the clinical trial?
-
+84
 - What is the probability a randomly selected patient received the placebo?
-
-- What is the probability a randomly selected patient received the placebo
-  and had a marked improvement?
-  
-- What is the probability a randomly selected patient received the placebo
-  and the treatment?
-  
-- What is the probability a randomly selected patient had some improvement or
-  was on the treatment?
-
+About 52% (43/84)
+- What is the probability a randomly selected patient received the placebo and had a marked improvement?
+ (7/84) or 8.3% 
+- What is the probability a randomly selected patient received the placebo and the treatment?
+  0%
+- What is the probability a randomly selected patient had some improvement or was on the treatment?
+(41 + 7) / 84 or 57%
 ## Using computer simulations to calculate probabilities
 
 #### Example
