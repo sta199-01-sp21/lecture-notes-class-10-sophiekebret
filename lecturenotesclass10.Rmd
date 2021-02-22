@@ -70,8 +70,8 @@ marbles <- c("red", "red", "white", "red", "blue", "blue", "red", "blue")
 ```
 
 Suppose we draw a single marble from our imaginary box, where all the marbles
-are equally likely to be selected. What is the probability the marble is blue? 
-How about white?
+are equally likely to be selected. What is the probability the marble is blue? 3/8 or 37%
+How about white? 1/8
 
 We can simulate this "drawing" with the `sample()` function.
 
@@ -155,15 +155,23 @@ Perform a simulation to compute this empirical probability.
 Write down your guess to the answer before you calculate it.
 
 ```{r simulate_rolls}
-
+roll_results <- tibble(
+  die_1 = replicate(n = 10000, expr = sample(1:6, size = 1)),
+  die_2 = replicate(n = 10000, expr = sample(1:6, size = 1)))
+roll_results
 ```
 
 ```{r identify_events}
-
+roll_results <- roll_results %>%
+  mutate(event_1 = die_1 ^ 2 == die_2,
+         event_2 = abs(die_1 - die_2) == 4)
+roll_results
 ```
 
 ```{r summarize_rolls}
-
+roll_results %>%
+  summarise(event_1_prob = mean(event_1),
+            event_2_prob = mean(event_2))
 ```
 
 ## Additional Resources-please look at before Weds.
